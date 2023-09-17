@@ -1,0 +1,21 @@
+# Quitar extensión de las URL
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteBase /admins-mods-trilce/api/controllers/
+
+# Ruta para el archivo userexplain.php especifico
+#RewriteRule ^userexplain/([0-9]+)$ userexplain.php?dni=$1 [QSA,L]
+# Ruta para el archivo useraccess.php especifico
+#RewriteRule ^useraccess/([0-9]+)$ useraccess.php?dni=$1 [QSA,L]
+
+
+# Ruta para el archivo userexplain.php general
+
+#RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+# END Quitar extensión de las URL
